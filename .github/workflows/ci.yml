@@ -23,9 +23,6 @@ jobs:
         id: checkout
         uses: actions/checkout@v4
 
-      - name: Create Python file
-        run: echo touch test.py
-
       - name: Test Local Action
         id: test-action
         uses: ./
