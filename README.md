@@ -5,6 +5,8 @@
 
 GitHub action that lints files that were changed in a PR and annotates them with pylint comments.
 
+![Linting result](.\img\image.png)
+
 ## Usage
 
 ### Basic
