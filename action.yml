@@ -26,6 +26,7 @@ runs:
         python-version: ${{ inputs.python-version }}
         
     - name: Update pip
+      shell: bash
       run: |
         pip install --upgrade pip
         pip install pylint
@@ -33,6 +34,7 @@ runs:
     - name: Run Pylint
       continue-on-error: true
       id: pylint
+      shell: bash
       run: |
         { pylint ${{ steps.changed_files.outputs.changed_files || '.' }} --output-format=json2:pylint.json,colorized,text:pylint.txt; TASK_EXIT_CODE=$?; } || true
 
