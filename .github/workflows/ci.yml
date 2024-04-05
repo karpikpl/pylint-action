@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create Python file
-        run: echo "print('Hello World')" > test.py
+        run: echo "'''Test.'''\nprint('Hello World')" > test.py
 
       - name: Test Local Action
         id: test-action
