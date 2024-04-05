@@ -1,19 +1,57 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Pylint action'
+description: 'Lint code and annotate it'
+author: 'Piotr Karpala'
 
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  python-version:
+    description: 'Python version to use'
     required: true
-    default: '1000'
-
-# Define your outputs here.
+    default: '3.11'
 outputs:
-  time:
-    description: 'Your output description here'
-
+  result:
+    description: "Result of the lint action"
+    value: ${{ steps.pylint-annotation.outputs.result }}
 runs:
-  using: node20
-  main: dist/index.js
+  using: "composite"
+  steps:
+    - name: List Changed Files
+      id: changed_files
+      uses: karpikpl/sample-action@main
+      with:
+        file-filter: '*.py'
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+        
+    - name: Update pip
+      run: |
+        pip install --upgrade pip
+        pip install pylint
+
+    - name: Run Pylint
+      continue-on-error: true
+      id: pylint
+      run: |
+        { pylint ${{ steps.changed_files.outputs.changed_files || '.' }} --output-format=json2:pylint.json,colorized,text:pylint.txt; TASK_EXIT_CODE=$?; } || true
+
+        {
+          echo "## Pylint"
+          echo "<details><summary>Click to expand</summary>"
+          echo ""
+          echo '```'
+          cat pylint.txt
+          echo '```'
+          echo "</details>"
+        } >> $GITHUB_STEP_SUMMARY
+
+        echo "exitcode=$TASK_EXIT_CODE" >> $GITHUB_OUTPUT
+
+    - name: Annotate Commit with Pylint Results
+      uses: karpikpl/pylint-annotation-action@v1.0.0
+      id: pylint-annotation
+      with:
+        head-sha: ${{ steps.changed_files.outputs.head_sha || github.sha }}
+        lint-file: pylint.json
+        pylint-result-code: ${{ steps.pylint.outputs.exitcode }}
