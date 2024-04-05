@@ -36,7 +36,7 @@ runs:
       id: pylint
       shell: bash
       run: |
-        { pylint ${{ steps.changed_files.outputs.changed_files || '.' }} --output-format=json2:pylint.json,colorized,text:pylint.txt; TASK_EXIT_CODE=$?; } || true
+        { pylint ${{ steps.changed_files.outputs.changed_files || '*.py' }} --output-format=json2:pylint.json,colorized,text:pylint.txt; TASK_EXIT_CODE=$?; } || true
 
         {
           echo "## Pylint"
