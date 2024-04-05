@@ -1,4 +1,4 @@
-name: 'Pylint action'
+name: 'Pylint'
 description: 'Lint code and annotate it'
 author: 'Piotr Karpala'
 
@@ -57,3 +57,7 @@ runs:
         head-sha: ${{ steps.changed_files.outputs.head_sha || github.sha }}
         lint-file: pylint.json
         pylint-result-code: ${{ steps.pylint.outputs.exitcode }}
+
+branding:
+  icon: 'git-pull-request'
+  color: 'purple'
