@@ -44,3 +44,10 @@ with:
 
 The result of the action. Success, Failure or information message. Useful for
 debugging.
+
+## Details
+
+Action internally uses other actions:
+
+* [List files changed in a Pull Request](https://github.com/marketplace/actions/list-files-changed-in-a-pull-request)
+* [Annotate Commit with Pylint Results](https://github.com/marketplace/actions/annotate-commit-with-pylint-results)
