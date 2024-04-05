@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 name: 'Pylint action'
 description: 'Lint code and annotate it'
+=======
+name: 'Pylint Annotation Action'
+description: 'Lint code with Pylint and annotate it in the pull request'
+>>>>>>> Stashed changes
 author: 'Piotr Karpala'
 
 inputs:
