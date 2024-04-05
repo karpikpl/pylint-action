@@ -1,10 +1,5 @@
-<<<<<<< Updated upstream
-name: 'Pylint action'
-description: 'Lint code and annotate it'
-=======
 name: 'Pylint Annotation Action'
 description: 'Lint code with Pylint and annotate it in the pull request'
->>>>>>> Stashed changes
 author: 'Piotr Karpala'
 
 inputs:
@@ -62,3 +57,7 @@ runs:
         head-sha: ${{ steps.changed_files.outputs.head_sha || github.sha }}
         lint-file: pylint.json
         pylint-result-code: ${{ steps.pylint.outputs.exitcode }}
+
+branding:
+  icon: 'git-pull-request'
+  color: 'purple'
