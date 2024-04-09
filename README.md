@@ -21,13 +21,13 @@ permissions:
 ```
 
 ```yaml
-uses: karpikpl/pylint-action@1.0.0
+uses: karpikpl/pylint-action@1.0.1
 ```
 
 To specify python version:
 
 ```yaml
-uses: karpikpl/pylint-action@1.0.0
+uses: karpikpl/pylint-action@1.0.1
 with:
   python-version: '3.11'
 ```
