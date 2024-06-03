@@ -104,3 +104,5 @@ __tests__/runner/*
 
 # Python
 .venv
+venv
+myenv
