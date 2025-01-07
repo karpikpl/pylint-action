@@ -3,7 +3,7 @@
 [![GitHub Super-Linter](https://github.com/karpikpl/pylint-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
 ![CI](https://github.com/karpikpl/pylint-action/actions/workflows/ci.yml/badge.svg)
 
-GitHub action that lints files that were changed in a PR and annotates
+GitHub Action that lints files that were changed in a PR and annotates
 them with pylint comments.
 
 ![Linting result](img/image.png)
