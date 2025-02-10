@@ -16,7 +16,7 @@ runs:
   steps:
     - name: List Changed Files
       id: changed_files
-      uses: karpikpl/list-changed-files-action@1.1.4
+      uses: karpikpl/sample-action@main
       with:
         file-filter: '*.py'
 
