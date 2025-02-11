@@ -16,7 +16,7 @@ runs:
   steps:
     - name: List Changed Files
       id: changed_files
-      uses: karpikpl/sample-action@main
+      uses: karpikpl/list-changed-files-action@main
       with:
         file-filter: '*.py'
 
@@ -51,7 +51,7 @@ runs:
         echo "exitcode=$TASK_EXIT_CODE" >> $GITHUB_OUTPUT
 
     - name: Annotate Commit with Pylint Results
-      uses: karpikpl/pylint-annotation-action@v1.1.1
+      uses: karpikpl/pylint-annotation-action@v1.1.2
       id: pylint-annotation
       with:
         head-sha: ${{ steps.changed_files.outputs.head_sha || github.sha }}
