@@ -106,3 +106,7 @@ __tests__/runner/*
 .venv
 venv
 myenv
+
+# SuperLinter
+github_conf
+super-linter-output

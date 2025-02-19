@@ -15,7 +15,6 @@ permissions:
   pull-requests: write
 
 jobs:
-
   test-action:
     name: GitHub Actions Test
     runs-on: ubuntu-latest
