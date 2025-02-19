@@ -30,6 +30,7 @@ jobs:
           FIX_SHELL_SHFMT: true
           FIX_YAML_PRETTIER: true
           FIX_MARKDOWN_PRETTIER: true
+          FIX_JSON_PRETTIER: true
           VALIDATE_JSCPD: false
           # To reuse the same Super-linter configuration that you use in the
           # lint job without duplicating it, see
