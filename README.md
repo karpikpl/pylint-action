@@ -29,7 +29,7 @@ To specify python version:
 ```yaml
 uses: karpikpl/pylint-action@1.1.0
 with:
-  python-version: '3.13'
+  python-version: "3.13"
 ```
 
 ## Inputs

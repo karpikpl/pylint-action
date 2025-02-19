@@ -1,12 +1,12 @@
-name: 'Pylint Annotation Action'
-description: 'Lint code with Pylint and annotate it in the pull request'
-author: 'Piotr Karpala'
+name: "Pylint Annotation Action"
+description: "Lint code with Pylint and annotate it in the pull request"
+author: "Piotr Karpala"
 
 inputs:
   python-version:
-    description: 'Python version to use'
+    description: "Python version to use"
     required: true
-    default: '3.13'
+    default: "3.13"
 outputs:
   result:
     description: "Result of the lint action"
@@ -18,13 +18,13 @@ runs:
       id: changed_files
       uses: karpikpl/list-changed-files-action@main
       with:
-        file-filter: '*.py'
+        file-filter: "*.py"
 
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: ${{ inputs.python-version }}
-        
+
     - name: Update pip
       shell: bash
       run: |
@@ -59,5 +59,5 @@ runs:
         pylint-result-code: ${{ steps.pylint.outputs.exitcode }}
 
 branding:
-  icon: 'git-pull-request'
-  color: 'purple'
+  icon: "git-pull-request"
+  color: "purple"
