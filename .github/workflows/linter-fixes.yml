@@ -10,26 +10,6 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    name: Lint Codebase
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Lint Codebase
-        id: super-linter
-        uses: super-linter/super-linter/slim@v7
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_ALL_CODEBASE: true
-          VALIDATE_JSCPD: false
-
   fix-lint-issues:
     permissions:
       # To write linting fixes
@@ -49,6 +29,7 @@ jobs:
           FIX_SHELL_SHFMT: true
           FIX_YAML_PRETTIER: true
           FIX_MARKDOWN_PRETTIER: true
+          VALIDATE_JSCPD: false
           # To reuse the same Super-linter configuration that you use in the
           # lint job without duplicating it, see
           # https://github.com/super-linter/super-linter/blob/main/docs/run-linter-locally.md#share-environment-variables-between-environments
