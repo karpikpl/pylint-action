@@ -3,7 +3,7 @@
 [![GitHub Super-Linter](https://github.com/karpikpl/pylint-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
 ![CI](https://github.com/karpikpl/pylint-action/actions/workflows/ci.yml/badge.svg)
 
-GitHub action that lints files that were changed in a PR and annotates
+GitHub Action that lints files that were changed in a PR and annotates
 them with pylint comments.
 
 ![Linting result](img/image.png)
@@ -21,22 +21,22 @@ permissions:
 ```
 
 ```yaml
-uses: karpikpl/pylint-action@1.0.1
+uses: karpikpl/pylint-action@1.1.0
 ```
 
 To specify python version:
 
 ```yaml
-uses: karpikpl/pylint-action@1.0.1
+uses: karpikpl/pylint-action@1.1.0
 with:
-  python-version: '3.11'
+  python-version: '3.13'
 ```
 
 ## Inputs
 
 ### `python-version`
 
-**Optional** Version of python to use. Defaults to `3.11`.
+**Optional** Version of python to use. Defaults to `3.13`.
 
 ## Outputs
 
