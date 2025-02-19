@@ -1,4 +1,4 @@
-name: Test the actio n
+name: Test the action
 
 on:
   workflow_dispatch:
